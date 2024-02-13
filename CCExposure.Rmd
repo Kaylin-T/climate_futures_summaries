@@ -47,49 +47,9 @@ U.S. Department of the Interior
 
 \newpage
 
-```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
-library(flextable)
+Recommended citation
 
-line1 <- paste0("The climate has already changed in ", LongName, ". Since 1970, the park warmed at a rapid rate of ", Exposure.Data$Tavg.rate.1970, " °F per century.") 
-line2 <- paste0("The future won’t look like the past. All future projections in temperature are above the recent historical average (1979-2012).")
-line3 <- paste0("There’s a range of ways the future climate may evolve. In 2050, temperature projections range from +", Exposure.Data$Future.DeltaTavg.min, " to +", Exposure.Data$Future.DeltaTavg.max, " °F and precipitation from ", Exposure.Data$Future.DeltaPr.min, " (", Exposure.Data$Future.DeltaPr.min.percent, "%) to +", Exposure.Data$Future.DeltaPr.max, " inches per year (", Exposure.Data$Future.DeltaPr.max.percent, "%).")
-line4 <- paste0("To account for this range, consider more than one future scenario. This report contains projections for ", LongName, " for ", CF1.Name, " and ", CF2.Name, " climate futures and summarizes potential impacts to resources.")
-
-my_data <- c(line1, line2, line3, line4)
-numbered_list <- sapply(seq_along(my_data), function(i) paste0(i, ". ", my_data[i]))
-my_data_df <- data.frame(Numbered_List_Item = numbered_list)
-textbox <- flextable(data = my_data_df)
-
-#  my_data1 <- paste0(
-#   "The climate has already changed in ", LongName, ". Since 1970, the park warmed at a rapid rate of ", Exposure.Data$Tavg.rate.1970, " °F per century.  
-# 
-# The future won’t look like the past. All future projections in temperature are above the recent historical average (1979-2012). 
-# 
-# There’s a range of ways the future climate may evolve. Future temperature projections range from +", Exposure.Data$Future.DeltaTavg.min, " to +", Exposure.Data$Future.DeltaTavg.max, " °F and precipitation from ", Exposure.Data$Future.DeltaPr.min, " (", Exposure.Data$Future.DeltaPr.min.percent, "%) to +", Exposure.Data$Future.DeltaPr.max, " inches per year (", Exposure.Data$Future.DeltaPr.max.percent, "%). 
-# 
-# To account for this range, consider more than one future scenario. This report contains projections for ", LongName, " for ", CF1.Name, " and ", CF2.Name, " climate futures and summarizes potential impacts to resources.")
-#   
-#   my_data2 <- data.frame(my_data1)
-# 
-# textbox <- flextable(my_data2)
-
-header_labels <- "Key messages"
-textbox <- flextable::set_header_labels(textbox, values = header_labels)
-
-textbox <- flextable::set_table_properties(textbox, width = 1, layout = "autofit") %>%
-  flextable::border_outer()
-
-textbox <- bg(textbox, bg = "#DEEAF6", part = "all")
-textbox <- color(textbox, color = "#1f497d", part = "all")
-textbox <- fontsize(textbox, size = 16, part = "header")
-textbox <- bold(textbox, bold = TRUE, part = "header")
-textbox <- fontsize(textbox, size = 11.5, part = "body")
-textbox <- font(textbox, fontname = "Times New Roman", part = "body")
-
-
-textbox
-```
-
+Climate Change Response Program. 2024. `r LongName` climate futures summary. National Park Service. Fort Collins, CO.
 
 Key messages
 
@@ -97,7 +57,7 @@ The climate has already changed in `r LongName`. Since 1970, the park warmed at 
 
 The future won’t look like the past. All future projections in temperature are above the recent historical average (1979-2012).
 
-There’s a range of ways the future climate may evolve. In 2050, temperature projections range from + `r Exposure.Data$Future.DeltaTavg.min` to + `r Exposure.Data$Future.DeltaTavg.max` °F and precipitation from `r Exposure.Data$Future.DeltaPr.min` (`r Exposure.Data$Future.DeltaPr.min.percent`%) to +`r Exposure.Data$Future.DeltaPr.max` inches per year (`r Exposure.Data$Future.DeltaPr.max.percent`%).
+There’s a range of ways the future climate may evolve. In 2050, average temperature projections range from +`r Exposure.Data$Future.DeltaTavg.min` to +`r Exposure.Data$Future.DeltaTavg.max` °F and precipitation from `r Exposure.Data$Future.DeltaPr.min` inches (`r Exposure.Data$Future.DeltaPr.min.percent`%) to +`r Exposure.Data$Future.DeltaPr.max` inches per year (+`r Exposure.Data$Future.DeltaPr.max.percent`%).
 
 To account for this range, consider more than one future scenario. This report contains projections for `r LongName` for "`r CF1.Name`" and "`r CF2.Name`" climate futures and summarizes potential impacts to resources.
 
@@ -132,9 +92,9 @@ fig1 <- paste0("RegressionTables/",params$name,"_Historical_Trends.png")
 
 # Projected climate change and related impacts
 
-We examined 40 different climate model outputs to characterize the uncertainty about how climate change could affect `r params$name`. Relative to the 1979–2012 baseline period[^2] (see @Runyon2024 for details), all climate models project significant warming by 2050 with projected increases in average annual temperature ranging from +`r Exposure.Data$Future.DeltaTavg.min` °F to +`r Exposure.Data$Future.DeltaTavg.max` °F. `r Exposure.Data$PrcpModels` Given the range of these projections, it's clear that future conditions will not resemble the past, and planning for [more than one]{custom-style="Emphasis"} plausible future will best position the park to manage change. Thus we identified two plausible, divergent climate futures (“`r CF1.Name`” and “`r CF2.Name`”) to capture relevant variation across climate models and greenhouse gas emissions scenarios (for more specifics on the process, see @Lawrence2021; @Runyon2024). These two climate futures represent different ways the climate might develop at `r params$name` through 2050 and are equally plausible. Neither of these projections should be considered as "predictions"—we cannot know how the future will unfold. Considering both climate futures will best help the park prepare for future conditions despite climate uncertainty.  
+We examined 40 different climate model outputs to characterize the uncertainty about how climate change could affect `r params$name`. Relative to the 1979–2012 baseline period[^2] (see @Runyon2024 for details), all climate models project significant warming by 2050 with projected increases in average annual temperature ranging from +`r Exposure.Data$Future.DeltaTavg.min` °F to +`r Exposure.Data$Future.DeltaTavg.max` °F. `r Exposure.Data$PrcpModels` Given the range of these projections, it's clear that future conditions will not resemble the past, and planning for [more than one]{custom-style="Emphasis"} plausible future will best position the park to manage change. Thus, we identified two plausible, divergent climate futures (“`r CF1.Name`” and “`r CF2.Name`”) to capture relevant variation across climate models and greenhouse gas emissions scenarios (for more specifics on the process, see @Lawrence2021; @Runyon2024). These two climate futures represent different ways the climate might develop at `r params$name` through 2050 and are both plausible. Neither of these projections should be considered as "predictions"—we cannot know how the future will unfold. Considering both climate futures will best help the park prepare for future conditions despite climate uncertainty.  
 
-It is important to note the naming of these futures is relative to one another, not the past. In other words, the `r CF1.Name` `r Exposure.Data$Conven` `r CF2.Name` climate future.
+It is important to note the naming of these futures is relative to one another, not the past. In other words, the `r CF1.Name` `r Exposure.Data$Name.Convention` `r CF2.Name` climate future.
 
 [^2]: The historical baseline used to compare with climate futures is from 1979-2012, the period of record for the observational dataset in the downscaling process. Historical comparisons for climate futures use this baseline period, instead of 1895-2022 range reported above to avoid statistical errors. See Runyon et al. (2024) for details.
 
@@ -142,7 +102,7 @@ It is important to note the naming of these futures is relative to one another, 
 
 Average annual temperatures are projected to increase under both the `r CF1.Name` and `r CF2.Name` climate futures relative to the historical baseline period (1979-2012). Increases by 2050 under the `r CF1.Name` climate future are considerable (+`r Exposure.Data$DeltaTavg.CF1` °F) and increases under the `r CF2.Name` climate future are extreme (+`r Exposure.Data$DeltaTavg.CF2` °F) (Figure 3. See Appendix 1 for "Projected changes in climate metrics"). 
 
-To put this in context, the hottest two years recorded at `r params$name` prior to 2000 (`r Exposure.Data$Tavg.Anomalies.1` and `r Exposure.Data$Tavg.Anomalies.2`) would be "average" temperature years in the `r CF1.Name` climate future. By 2050, temperatures every year under `r Exposure.Data$TavgCompare` would exceed anything experienced at `r params$name` since record keeping began in 1895. These projections are consistent with temperature increases already observed due to climate change at `r params$name`.
+To put this in context, the hottest two years recorded at `r params$name` prior to 2000 (`r Exposure.Data$Tavg.Anomalies.1` and `r Exposure.Data$Tavg.Anomalies.2`) would be "average" temperature years in the `r CF1.Name` climate future. By 2050, temperatures every year under `r Exposure.Data$TavgCompare` would exceed anything experienced at `r params$name` since 1895. These projections are consistent with temperature increases already observed due to climate change at `r params$name`.
 
 Increases in average temperatures can result in a range of impacts to both human life and ecosystems. Rising temperatures can stress plants and animals not accustomed to living in warmer temperatures. Temperature increases can lead to intense heat waves that threaten human health, especially for vulnerable populations. Finally, rising temperatures often lead to worsening drought conditions and increased wildfire risk.
 
@@ -154,7 +114,7 @@ fig3 <- paste0("data/",params$name,"/",CF_selected,"/figures/TavgF-Timeseries.pn
 
 Average annual precipitation is projected to be highly variable. Projections under both climate futures indicate considerably drier and also wetter years than experienced historically. These projections are consistent with the scientific understanding that climate change will result in increased extremes in precipitation (@NCA5). This means that `r Exposure.Data$PrecipFutures`. Overall, our analysis projects +`r Exposure.Data$DeltaPrcp.CF1` inches in annual precipitation under the `r CF1.Name` climate future and `r Exposure.Data$DeltaPrcp.CF2` inches under the `r CF2.Name` climate future relative to 1979-2012. 
 
-Although average annual precipitation is projected to `r Exposure.Data$PrcpSeasons`, any changes in seasonal precipitation patterns could impact hydrologic systems, seasonal biology, and extreme events. Very dry intervals and warming can lead to drought conditions, affecting river levels, water availability and ecosystem health. Very wet years and overall increases in annual precipitation can lead to flooding that may impact water quality, infrastructure, transportation routes, and more. 
+Although average annual precipitation is projected to `r Exposure.Data$PrcpSeasons`, any changes in seasonal precipitation patterns could impact hydrologic systems, seasonal biology, and extreme events (see Appendix 1). Very dry intervals and warming can lead to drought conditions, affecting river levels, water availability and ecosystem health. Very wet years and overall increases in annual precipitation can lead to flooding that may impact water quality, infrastructure, transportation routes, and more. 
 
 ```{r, echo=FALSE}
 fig4 <- paste0("data/",params$name,"/",CF_selected,"/figures/PrcpIn-Timeseries.png")
@@ -178,7 +138,7 @@ Extreme temperatures can also lead to infrastructure issues, such as acceleratin
 fig5 <- paste0("data/",params$name,"/",CF_selected,"/figures/",fig5code)
 ```
 
-![[Figure 5.]{custom-style="Strong"} Metrics of extreme temperature at `r params$name`. The upper bar graph represents the average number of days annually with temperatures exceeding the 99th percentile (`r Exposure.Data$Tmax99` °F) of temperatures from the historical period 1979-2012 for each climate future. The bottom bar graph represents the average annual number of dangerous heat index days historically and for the two climate futures.](`r fig5`){width="480"}
+![[Figure 5.]{custom-style="Strong"} `r Exposure.Data$TempsFigures`](`r fig5`){width="480"}
 
 ### Extreme precipitation
 
@@ -203,22 +163,22 @@ fig7 <- paste0("data/",params$name,"/",CF_selected,"/figures/SPEI-Panel.png")
 
 Figure 8 complements the SPEI data by providing a more detailed view of projected drought characteristics in the region. Drought duration (left graph) refers to the length of time during which the area experiences continuous drought conditions, extending the impact on water availability in the area. The drought-free interval (middle graph, an alternative measure of drought frequency) represents periods between drought events when there is sufficient water availability. More years in a drought-free interval signify more extended periods of recovery from drought. Drought severity (right graph) reflects the intensity of drought conditions compounded by the duration of the drought period. `r Exposure.Data$DrtCFsTrend`
 
-For `r params$name`, drought under a `r CF2.Name` climate future is projected to become `r Exposure.Data$Drt2Trend`. For the `r CF1.Name` climate future, droughts are projected to become `r Exposure.Data$DrtCF1Duration` and `r Exposure.Data$DrtCF1Severity` severe, `r Exposure.Data$Drt1Condition` `r Exposure.Data$Drt1Trend`.
+For `r params$name`, drought under a `r CF2.Name` climate future is projected to become `r Exposure.Data$DrtTrend.CF2`. For the `r CF1.Name` climate future, droughts are projected to become `r Exposure.Data$DrtCF1Duration` and `r Exposure.Data$DrtCF1Severity` severe, `r Exposure.Data$DrtGrammar.CF1` `r Exposure.Data$Drt.Severity.Length.CF1`.
 
-`r Exposure.Data$DrtRsrch`(@NCA5). Generally, the longer that an area experiences drought conditions, the more severe the drought becomes. More severe and prolonged droughts pose a risk to water supplies and both human and ecosystem health. Areas prone to wildfires may also experience more severe and higher intensity fires, as drought can dry out vegetation and make it more likely to burn. Managers should prepare for potential impacts to water sources, plant species, and ecosystem health in the face of severe and prolonged drought.
+`r Exposure.Data$Drt.Research` (@NCA5). Generally, the longer that an area experiences drought conditions, the more severe the drought becomes. More severe and prolonged droughts pose a risk to water supplies and both human and ecosystem health. Areas prone to wildfires may also experience more severe and higher intensity fires, as drought can dry out vegetation and make it more likely to burn. Managers should prepare for potential impacts to water sources, plant species, and ecosystem health in the face of severe and prolonged drought.
 ```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
-child_content <- readLines('Regional2.Rmd')
+child_content <- readLines('Regional.Rmd')
 
 if ((Exposure.Data$DeltaPrcp.CF1 | Exposure.Data$DeltaPrcp.CF2 > 0) && (Exposure.Data$Severity == TRUE | Exposure.Data$Severity1 == TRUE) && nps_boundary$REGION[which(nps_boundary$UNIT_CODE == params$name)] == "Northeast"){
-cat(readLines('Regional2.Rmd')[c(37:38)], sep = '\n')
+cat(readLines('Regional.Rmd')[c(37:38)], sep = '\n')
 } else if (nps_boundary$REGION[which(nps_boundary$UNIT_CODE == params$name)] == "Mountains" && nps_boundary$STATE[which(nps_boundary$UNIT_CODE == params$name)] %in% c("SD","WY","MT","ND","NE")){
-cat(readLines('Regional2.Rmd')[c(45:46)], sep = '\n')
+cat(readLines('Regional.Rmd')[c(45:46)], sep = '\n')
 } else if (nps_boundary$REGION[which(nps_boundary$UNIT_CODE == params$name)] == "Pacific West" && nps_boundary$STATE[which(nps_boundary$UNIT_CODE == params$name)] %in% c("OR","WA","ID") && NPVuln$High.impact.summer.drought == 1){
-cat(readLines('Regional2.Rmd')[c(49:50)], sep = '\n')
+cat(readLines('Regional.Rmd')[c(49:50)], sep = '\n')
 } else if (ExpRegion$ExpRep[which(ExpRegion$UNIT_CODE == params$name)] == "DesertSW" && ExpRegion$STATE[which(ExpRegion$UNIT_CODE == params$name)] %in% c("CA","NV","UT","CO","AZ","NM") && NPVuln$High.impact.summer.drought == 1){
-  cat(readLines('Regional2.Rmd')[c(53:54)], sep = '\n')
+  cat(readLines('Regional.Rmd')[c(53:54)], sep = '\n')
   } else if (ExpRegion$REGION[which(ExpRegion$UNIT_CODE == params$name)] == "MW" && NPVuln$High.impact.summer.drought[which(NPVuln$code == params$name)] == 1){
-  cat(readLines('Regional2.Rmd')[c(57:58)], sep = '\n')
+  cat(readLines('Regional.Rmd')[c(57:58)], sep = '\n')
   } else {
   cat(" ")
 }
@@ -232,9 +192,9 @@ fig8 <- paste0("data/",params$name,"/",CF_selected,"/figures/Drought-characteris
 
 ### Plant-available water
 
-Climatic water deficit—the difference between potential evapotranspiration and actual—indicates the amount of additional water plants would use if it were available and it is often used to indicate landscape dryness. High climatic water deficit is also an indicator of increased fire risk and plant stress (@Thoma2020). When evaluating water balance, we use a water balance model of the inputs and outputs of water into a system that accounts for the interactive effects of temperature, precipitation, and local characteristics (e.g., slope, aspect, soil profile) to determine climatic water deficit.
+Climatic water deficit—the difference between potential evapotranspiration and actual evapotranspiration—indicates the amount of additional water plants would use if it were available and it is often used to indicate landscape dryness. High climatic water deficit is also an indicator of increased fire risk and plant stress (@Thoma2020). We use a water balance model to determine climatic water deficit that accounts for the interactive effects of temperature, precipitation, and local characteristics (e.g., slope, aspect, soil profile).
 
-The average annual climatic water deficit at `r params$name` is `r Exposure.Data$WBtrend` (`r CF1.Name`: +`r Exposure.Data$CF1.WBdelta` inches/year, `r CF2.Name`: +`r Exposure.Data$CF2.WBdelta` inches/year; Figure 9). Both climate futures project `r Exposure.Data$WBExtremes` Under the `r CF2.Name` climate future, `r Exposure.Data$wbCF2`
+The average annual climatic water deficit at `r params$name` is projected to `r Exposure.Data$WBtrend`  relative to the historical period (1979-2020) (`r CF1.Name`: +`r Exposure.Data$CF1.WBdelta` inches/year, `r CF2.Name`: +`r Exposure.Data$CF2.WBdelta` inches/year; Figure 9). Both climate futures project `r Exposure.Data$WBExtremes` Under the `r CF2.Name` climate future, `r Exposure.Data$wbCF2`
 
 ```{r, echo=FALSE}
 fig9 <- paste0("data/",params$name,"/",CF_selected,"/figures/D.in-Timeseries.png")
@@ -244,29 +204,31 @@ fig9 <- paste0("data/",params$name,"/",CF_selected,"/figures/D.in-Timeseries.png
 
 ## Other Possible Climate-related Impacts
 
+Other potential climate-related impacts that may occur at `r params$name` but cannot be represented by basic climate exposure metrics are described below. While these impacts are based on general literature review for the region and are not specific to `r params$name`, park staff should be aware of their potential threat and further study may be warranted.
+
 ```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
-child_content <- readLines('Regional2.Rmd')
+child_content <- readLines('Regional.Rmd')
 
 if (NPVuln$High.impact.projected.fire[which(NPVuln$code == params$name)] == 1 | NPVuln$High.impact.current.fire[which(NPVuln$code == params$name)] == 1){
-  cat(readLines('Regional2.Rmd')[c(136:139)], sep = '\n')
+  cat(readLines('Regional.Rmd')[c(136:139)], sep = '\n')
 } else {
   cat(" ")
 }
 ```
 
 ```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
-child_content <- readLines('Regional2.Rmd')
+child_content <- readLines('Regional.Rmd')
 
 if (ExpRegion$REGION[which(ExpRegion$UNIT_CODE == params$name)] == "IM" && NPVuln$High.impact.projected.fire[which(NPVuln$code == params$name)] == 1){
-cat(readLines('Regional2.Rmd')[c(63:64)], sep = '\n')
+cat(readLines('Regional.Rmd')[c(63:64)], sep = '\n')
 } else if (ExpRegion$REGION[which(ExpRegion$UNIT_CODE == params$name)] == "PW" && nps_boundary$REGION[which(nps_boundary$UNIT_CODE == params$name)] == "Pacific West" && NPVuln$High.impact.projected.fire[which(NPVuln$code == params$name)] == 1){
-cat(readLines('Regional2.Rmd')[c(77:78)], sep = '\n')
+cat(readLines('Regional.Rmd')[c(77:78)], sep = '\n')
 } else if (ExpRegion$ExpRep[which(ExpRegion$UNIT_CODE == params$name)] == "DesertSW" && NPVuln$High.impact.projected.fire[which(NPVuln$code == params$name)] == 1){
-  cat(readLines('Regional2.Rmd')[c(53:54)], sep = '\n')
+  cat(readLines('Regional.Rmd')[c(53:54)], sep = '\n')
   } else if (ExpRegion$REGION[which(ExpRegion$UNIT_CODE == params$name)] == "SE" && NPVuln$High.impact.projected.fire[which(NPVuln$code == params$name)] == 1){
-  cat(readLines('Regional2.Rmd')[c(81:82)], sep = '\n')
+  cat(readLines('Regional.Rmd')[c(81:82)], sep = '\n')
   } else if (ExpRegion$STATE[which(ExpRegion$UNIT_CODE == params$name)] %in% c("NJ", "PA") && NPVuln$High.impact.projected.fire[which(NPVuln$code == params$name)] == 1){
-  cat(readLines('Regional2.Rmd')[c(73:74)], sep = '\n')
+  cat(readLines('Regional.Rmd')[c(73:74)], sep = '\n')
   } else {
   cat(" ")
 }
@@ -274,12 +236,12 @@ cat(readLines('Regional2.Rmd')[c(77:78)], sep = '\n')
 
 ### Invasive species and pests
 
-In addition to impacts on natural resources, terrestrial and aquatic invasive species have the potential to cause direct damage to power, water, transportation, and building facilities (@Vissichelli2018). Climate change can favor invasive alien plant species in temperate zone ecosystems due to increased warmth, humidity, vegetation disturbances, and atmospheric carbon dioxide (@Davidson2011, @Hellmann2008, @Liu2017). Climate change can also exacerbate aquatic invasive species, favored by warmer waters and other altered conditions in freshwater ecosystems (@Havel2015). For example, rooting and burrowing mammals and termites have the potential to cause direct damage to power, water, transportation, and building facilities (@Vissichelli2018). Facilities may also be impacted indirectly through other mechanisms exacerbated by climate change, such as forest insect pest invasions or fluctuating ground water levels leading to increased vegetation stress, mortality, and treefall. `r params$name` is in a region where weeds and non-native aquatic species have the potential to cause direct damage to power, water, transportation, and building facilities (@Vissichelli2018). The potential for increased invasive species should be prevented or mitigated through early detection and rapid response procedures. Measures include mitigation during construction (e.g., using weed-free gravel and cleaning construction equipment) and increased weed treatment post construction. Non-native species that may not currently impact facilities may become harmful due to changes in local climates (@NRC2002, @IPCC2014). Early detection monitoring and eradication, if possible, will help protect historic structures and other buildings.
+Climate change can accelerate the introduction and spread of invasive species, and invasive species can amplify the effects of climate change (@Beaury2020). Extreme weather events may stress native species, create opportunities for invasive species movement, and alter mean conditions that affect species life cycles and their ability to spread into new areas. Climate change can also affect the timing and efficacy of current invasive management treatments. Terrestrial and aquatic invasive species have the potential to cause direct damage to power, water, transportation, building facilities (@Vissichelli2018) and impact natural and cultural resources. `r params$name` is in a region where climate change can favor invasive alien plant species in temperate zone ecosystems due to increased warmth, humidity, vegetation disturbances, and atmospheric carbon dioxide (@Davidson2011, @Hellmann2008, @Liu2017). Indirect climate change impacts may also affect facilities through forest insect pest invasions or fluctuating ground water levels leading to increased vegetation stress, mortality, and treefall. The potential for increased invasive species should be prevented or mitigated through early detection and rapid response procedures. The [National Invasive Species Council](https://www.doi.gov/invasivespecies/early-detection-and-rapid-response) recently released EDRR tools and lessons learned and have additional resources for monitoring and managing invasive species and climate change. The [NPS Integrated Pest Management Program](https://www.nps.gov/orgs/1103/ipm.htm) also have resources available to help parks detect and prevent pests.
 ```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
-child_content <- readLines('Regional2.Rmd')
+child_content <- readLines('Regional.Rmd')
 
 if (ExpRegion$STATE[which(ExpRegion$UNIT_CODE == params$name)] %in% c("ME", "VT", "NH", "MA", "RI", "CT", "NY", "NJ", "PA", "DE", "MD", "VA", "WV", "OH", "MI", "WV", "NC", "SC", "GA", "FL", "AL", "TN", "KY", "IN", "MS", "LA", "TX", "AR", "MO", "IL", "WI", "MN", "IA", "MO", "OK", "KS", "NE")){
-cat(readLines('Regional2.Rmd')[c(142:143)], sep = '\n')
+cat(readLines('Regional.Rmd')[c(142:143)], sep = '\n')
 } else {
   cat(" ")
 }
@@ -291,14 +253,14 @@ cat(readLines('Regional2.Rmd')[c(142:143)], sep = '\n')
 The timing of spring onset affects the seasonal life-history stages of plants throughout the national parks. Roughly three-quarters of parks (76%) are experiencing earlier spring onset than historical conditions, and this change is projected to reach all regions containing parks by mid-century (@Monahan2016). Earlier spring onset and longer growing seasons influenced by climate change will alter the phenological patterns of species that flower before or after peak summer heat, follow other temperature cues, or are driven by water availability. Spring timing can impact animals reliant on the rhythms of plant life stages (e.g., mismatches in plant-pollinator interactions), the timing of park operations, events, and visitor uses (e.g., road openings, flower festivals, and backcountry recreation), cascading effects on carbon cycling and other ecosystem processes, the risk of “false springs” that create devastating hard freezes and facilitate the spread of invasive species. 
 
 ```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
-child_content <- readLines('Regional2.Rmd')
+child_content <- readLines('Regional.Rmd')
 
 if (NPVuln$High.impact.sea.level.or.surge[which(NPVuln$code == params$name)] == 1 && nps_boundary$REGION[which(nps_boundary$UNIT_CODE == params$name)] == "Northeast"){
-cat(readLines('Regional2.Rmd')[c(90:105)], sep = '\n')
+cat(readLines('Regional.Rmd')[c(90:105)], sep = '\n')
 } else if (NPVuln$High.impact.sea.level.or.surge[which(NPVuln$code == params$name)] == 1 && nps_boundary$REGION[which(nps_boundary$UNIT_CODE == params$name)] == "Pacific West"){
-cat(readLines('Regional2.Rmd')[c(108:117)], sep = '\n')
+cat(readLines('Regional.Rmd')[c(108:117)], sep = '\n')
 } else if (NPVuln$High.impact.sea.level.or.surge[which(NPVuln$code == params$name)] == 1 && nps_boundary$STATE[which(nps_boundary$UNIT_CODE == params$name)] %in% c("TX","AL","LA","FL","MS")){
-cat(readLines('Regional2.Rmd')[c(120:131)], sep = '\n')
+cat(readLines('Regional.Rmd')[c(120:131)], sep = '\n')
 } else {
   cat(" ")
 }
@@ -419,7 +381,7 @@ See [Runyon et al. (2024)](https://www.nps.gov/subjects/climatechange/climatefut
 
 [Table A1.]{custom-style="Strong"} Projected changes in climate metrics presented in this report. Change values are the difference between the climate metric's future-period (2035-2065) average and the historical-period (1979-2012) average.
 
-| [Climate Metric]{custom-style="Strong"}                                                | Historical                          | `r CF1.Name`                           | `r CF2.Name`                      |
+| Climate Metric                                                | Historical                          | `r CF1.Name`                           | `r CF2.Name`                      |
 |-------------------|------------------|------------------|------------------|
 | Change in annual average temperature (°F)   | `r D_Annual$TavgF[1]`   | `r ifelse(Exposure.Data$DeltaTavg.CF1 >= 0, "+", "")``r Exposure.Data$DeltaTavg.CF1`   | `r ifelse(Exposure.Data$DeltaTavg.CF2 >= 0, "+", "")``r Exposure.Data$DeltaTavg.CF2`           |
 | Change in average winter (DJF) temperature (°F)   | `r Exposure.Data$TempWinterHist`   | `r ifelse(Exposure.Data$DTempWinterCF1 >= 0, "+", "")``r Exposure.Data$DTempWinterCF1`   | `r ifelse(Exposure.Data$DTempWinterCF2 >= 0, "+", "")``r Exposure.Data$DTempWinterCF2`           |

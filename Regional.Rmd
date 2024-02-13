@@ -1,20 +1,20 @@
 ---
-title: "Regional2"
+title: "Regional"
 output: word_document
-date: "2023-11-20"
+date: "2024-2-13"
 ---
 
-```{r ugh, include=FALSE}
+```{r test, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Extreme precipitation
 
-Text blah blah.
+Testing.
 
-Blah blah.
+Hold for more regional text.
 
-Blah.
+Testing.
 
 ```{r sectionA, echo=FALSE}
 "Text text text"
@@ -140,17 +140,3 @@ Wildfire is a natural part of many forest, woodland, and grassland ecosystems. E
 ### Invasive species and pests
 
 For further reading on park-level nonnative species and pests, forest vulnerability briefs are available through the [NPS Eastern Forest Vulnerability](https://www.nps.gov/subjects/climatechange/forestvulnerability.htm) webpage.
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
